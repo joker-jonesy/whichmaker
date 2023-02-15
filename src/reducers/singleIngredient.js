@@ -6,6 +6,7 @@ export const fetchSingleIngredient = createAsyncThunk(
     async (id) => {
         try {
             const { data } = await axios.get(`/api/ingredients/${id}`);
+
             return data;
         } catch (err) {
             console.log(err);

@@ -6064,35 +6064,34 @@ __webpack_require__.r(__webpack_exports__);
 function App() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_10__.useDispatch)();
   react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
-    dispatch(_reducers_recipes__WEBPACK_IMPORTED_MODULE_11__.fetchRecipesAsync);
-    dispatch(_reducers_ingredients__WEBPACK_IMPORTED_MODULE_12__.fetchIngredientsAsync);
-    dispatch(_reducers_users__WEBPACK_IMPORTED_MODULE_13__.fetchUsersAsync);
+    dispatch((0,_reducers_recipes__WEBPACK_IMPORTED_MODULE_11__.fetchRecipesAsync)());
+    dispatch((0,_reducers_users__WEBPACK_IMPORTED_MODULE_13__.fetchUsersAsync)());
+    dispatch((0,_reducers_ingredients__WEBPACK_IMPORTED_MODULE_12__.fetchIngredientsAsync)());
   }, [dispatch]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_navigation_Nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     index: true,
     path: "/",
-    element: (0,_components_homePage__WEBPACK_IMPORTED_MODULE_3__["default"])()
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_homePage__WEBPACK_IMPORTED_MODULE_3__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
-    index: true,
     path: "/create:/:id",
-    element: (0,_components_createPage__WEBPACK_IMPORTED_MODULE_9__["default"])()
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_createPage__WEBPACK_IMPORTED_MODULE_9__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     path: "/recipes",
-    element: (0,_components_recipesPage__WEBPACK_IMPORTED_MODULE_5__["default"])()
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_recipesPage__WEBPACK_IMPORTED_MODULE_5__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     path: "/recipe/:id",
-    element: (0,_components_recipePage__WEBPACK_IMPORTED_MODULE_4__["default"])()
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_recipePage__WEBPACK_IMPORTED_MODULE_4__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
-    path: "user/:id",
-    element: (0,_components_userPage__WEBPACK_IMPORTED_MODULE_6__["default"])()
+    path: "/user/:id",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_userPage__WEBPACK_IMPORTED_MODULE_6__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     path: "/ingredients",
-    element: (0,_components_ingredientsPage__WEBPACK_IMPORTED_MODULE_8__["default"])()
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ingredientsPage__WEBPACK_IMPORTED_MODULE_8__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     path: "/ingredient/:id",
-    element: (0,_components_ingredientPage__WEBPACK_IMPORTED_MODULE_7__["default"])()
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ingredientPage__WEBPACK_IMPORTED_MODULE_7__["default"], null)
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_navigation_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 }
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -6108,9 +6107,12 @@ function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+
 
 function createPage() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Page 2"));
+  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useParams)();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, params.id));
 }
 /* harmony default export */ __webpack_exports__["default"] = (createPage);
 
@@ -6142,9 +6144,30 @@ function HomePage() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _reducers_singleIngredient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/singleIngredient */ "./src/reducers/singleIngredient.js");
+
+
+
 
 function ingredientPage() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Page 1"));
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
+    id = _useParams.id;
+  var singleIngredient = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_singleIngredient__WEBPACK_IMPORTED_MODULE_2__.selectSingleIngredient);
+  var ingredient = singleIngredient.info;
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    dispatch((0,_reducers_singleIngredient__WEBPACK_IMPORTED_MODULE_2__.fetchSingleIngredient)(id));
+  }, [dispatch, params]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "ingredientPage"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    style: {
+      color: ingredient.color
+    }
+  }, ingredient.name)));
 }
 /* harmony default export */ __webpack_exports__["default"] = (ingredientPage);
 
@@ -6159,9 +6182,26 @@ function ingredientPage() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducers_ingredients__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/ingredients */ "./src/reducers/ingredients.js");
+
+
 
 function ingredientsPage() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Page 11"));
+  var ingredients = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+    return state.ingredients;
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "ingredients"
+  }, ingredients && ingredients.length ? ingredients.map(function (ingredient) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      key: ingredient.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+      style: {
+        color: ingredient.color
+      }
+    }, ingredient.name));
+  }) : null);
 }
 /* harmony default export */ __webpack_exports__["default"] = (ingredientsPage);
 
@@ -6193,9 +6233,27 @@ function Footer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+
 
 function Nav() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", null, "navbar");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/"
+  }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/create/1"
+  }, "Create Recipe"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/ingredients"
+  }, "Ingredients"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/recipes"
+  }, "Recipes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/ingredient/1"
+  }, "Tomato"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/user/1"
+  }, "Luke"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/user/2"
+  }, "Lucas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/recipe/1"
+  }, "Blt"));
 }
 /* harmony default export */ __webpack_exports__["default"] = (Nav);
 
@@ -6210,9 +6268,35 @@ function Nav() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _reducers_singleRecipe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/singleRecipe */ "./src/reducers/singleRecipe.js");
+
+
+
 
 function recipePage() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Page 5"));
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
+    id = _useParams.id;
+  var singleRecipe = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_singleRecipe__WEBPACK_IMPORTED_MODULE_2__.selectSingleRecipe);
+  var recipe = singleRecipe.info;
+  var ingredients = singleRecipe.info.ingredients;
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    dispatch((0,_reducers_singleRecipe__WEBPACK_IMPORTED_MODULE_2__.fetchSingleRecipe)(id));
+  }, [dispatch, params]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "recipePage"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, recipe.name ? recipe.name : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, recipe.description ? recipe.description : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, ingredients && ingredients.length ? ingredients.map(function (ingredient) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      key: ingredient.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+      style: {
+        color: ingredient.color
+      }
+    }, ingredient.name));
+  }) : null)));
 }
 /* harmony default export */ __webpack_exports__["default"] = (recipePage);
 
@@ -6227,9 +6311,22 @@ function recipePage() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducers_recipes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/recipes */ "./src/reducers/recipes.js");
+
+
 
 function recipesPage() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Page 7"));
+  var recipes = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+    return state.recipes;
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "recipes"
+  }, recipes && recipes.length ? recipes.map(function (recipe) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      key: recipe.name
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, recipe.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, recipe.description));
+  }) : null);
 }
 /* harmony default export */ __webpack_exports__["default"] = (recipesPage);
 
@@ -6244,9 +6341,29 @@ function recipesPage() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _reducers_singleUser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/singleUser */ "./src/reducers/singleUser.js");
+
+
+
 
 function userPage() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Page 6"));
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
+    id = _useParams.id;
+  var singleUser = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_singleUser__WEBPACK_IMPORTED_MODULE_2__.selectSingleUser);
+  var user = singleUser.info;
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    dispatch((0,_reducers_singleUser__WEBPACK_IMPORTED_MODULE_2__.fetchSingleUser)(id));
+  }, [dispatch, params]);
+  var fullName = function fullName() {
+    return user.fName + " " + user.lName;
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "userPage"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, fullName()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, user.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, user.bio)));
 }
 /* harmony default export */ __webpack_exports__["default"] = (userPage);
 
@@ -6306,7 +6423,7 @@ var ingredientsSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSl
   }
 });
 var selectIngredients = function selectIngredients(state) {
-  return state.ingredients;
+  return state;
 };
 /* harmony default export */ __webpack_exports__["default"] = (ingredientsSlice.reducer);
 
@@ -6366,7 +6483,7 @@ var recipesSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)
   }
 });
 var selectRecipes = function selectRecipes(state) {
-  return state.recipes;
+  return state;
 };
 /* harmony default export */ __webpack_exports__["default"] = (recipesSlice.reducer);
 
@@ -6659,7 +6776,7 @@ var usersSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)({
   }
 });
 var selectUsers = function selectUsers(state) {
-  return state.users;
+  return state;
 };
 /* harmony default export */ __webpack_exports__["default"] = (usersSlice.reducer);
 

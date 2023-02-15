@@ -12,6 +12,8 @@ export const fetchRecipesAsync = createAsyncThunk("allRecipes", async () => {
     }
 });
 
+
+
 const recipesSlice = createSlice({
     name: "recipes",
     initialState,
@@ -25,7 +27,7 @@ const recipesSlice = createSlice({
 });
 
 export const selectRecipes = (state) => {
-    return state.recipes;
+    return state;
 };
 
 export default recipesSlice.reducer;

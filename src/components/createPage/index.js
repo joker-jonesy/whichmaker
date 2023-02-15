@@ -1,9 +1,14 @@
 import React from "react";
+import {useParams} from "react-router-dom";
 
 function createPage(){
+
+    const params = useParams();
+
+
     return(
         <>
-            <h1>Page 2</h1>
+            <h1>{params.id}</h1>
         </>
     )
 }

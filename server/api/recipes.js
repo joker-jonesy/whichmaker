@@ -13,10 +13,17 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-// GET /api/recipesPage/:recipeId
+// GET /api/recipes/:recipeId
 router.get('/:recipeId', async (req, res, next) => {
     try {
-        const recipe = await Recipe.findByPk(req.params.recipeId)
+        const recipe = await Recipe.findByPk(req.params.recipeId,{
+            include:[{
+                model: Ingredient,
+                as:'ingredients',
+                attributes:['id',"name","color"]
+            }]
+        })
+
         res.json(recipe)
     }
     catch (error) {
@@ -24,21 +31,33 @@ router.get('/:recipeId', async (req, res, next) => {
     }
 })
 
+router.post("/", async (req, res, next)=>{
+    try {
+        const newRecipe = await Recipe.create(req.body);
+        res.json(newRecipe)
+    } catch(error){
+        next(error)
+    }
+})
 
-// // GET /api/recipesPage/:recipeId/ingredientsPage
-// router.get('/:recipeId/ingredientsPage', async (req, res, next) => {
-//     try {
-//         const ingredient = await Ingredient.findAll({
-//             where: {
-//                 recipeId: req.params.recipeId
-//             },
-//             include: [Recipe]
-//         })
-//         res.json(ingredient)
-//     }
-//     catch (error) {
-//         next(error)
-//     }
-// })
+router.put('/:recipeId', async (req, res, next)=>{
+    try{
+        const recipe = await Recipe.findByPk(req.params.recipeId);
+        res.json(await recipe.update(req.body))
+    } catch(error){
+        next(error)
+    }
+})
+
+router.delete('/:recipeId', async (req, res, next)=>{
+    try{
+        const recipe = await Recipe.findByPk(req.params.recipeId);
+        await recipe.destroy();
+        res.json(recipe)
+    } catch(error){
+        next(error)
+    }
+})
+
 
 module.exports = router

@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 router.use('/users', require('./users'))
-router.use('/recipesPage', require('./recipes'))
-router.use('/ingredientsPage', require('./ingredients'))
+router.use('/recipes', require('./recipes'))
+router.use('/ingredients', require('./ingredients'))
 
 module.exports = router;

@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('./_db');
+const {Ingredient} = require("./ingredient");
 
 const Recipe = db.define('recipe', {
     name: {
@@ -13,5 +14,13 @@ const Recipe = db.define('recipe', {
         unique: false
     }
 });
+
+Recipe.getEverything = async function(){
+    const recipes = await Recipe.findAll({
+        include: Ingredient
+    })
+
+    return recipes;
+}
 
 module.exports = Recipe;

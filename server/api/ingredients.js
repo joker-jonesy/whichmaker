@@ -3,9 +3,10 @@ const {Ingredient} = require('../db');
 
 // GET /api/ingredientsPage
 router.get('/', async (req, res, next) => {
+    console.log("hit")
     try {
         const ingredient = await Ingredient.findAll({
-            attributes: ['name', 'color']
+            attributes: ['name', 'color','id']
         })
         res.json(ingredient)
     }
@@ -16,8 +17,9 @@ router.get('/', async (req, res, next) => {
 
 // GET /api/ingredientsPage/:ingId
 router.get('/:ingId', async (req, res, next) => {
+    console.log("hit")
     try {
-        const ingredient = await Ingredient.findByPk(req.paramsingId)
+        const ingredient = await Ingredient.findByPk(req.params.ingId)
         res.json(ingredient)
     }
     catch (error) {

@@ -13,7 +13,6 @@ export const fetchSingleRecipe = createAsyncThunk(
     }
 );
 
-
 const initialState = {
     info: {}
 };

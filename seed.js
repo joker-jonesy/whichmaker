@@ -19,44 +19,43 @@ const seed = async () => {
         bio: "I  did not make anything for this site"
     })
 
+    const ingredients = [
+        {
+            name: 'mayonaise',
+            color: "#ffefd4",
+        },
+        {
+            name: 'bacon',
+            color: "#911304",
+        },
+        {
+            name: 'tomato',
+            color: "#ff0000",
+        },
+        {
+            name: 'lettuce',
+            color: "#569d00"
+        },
+        {
+            name: 'bread',
+            color: "#8d4b27",
+        }
+    ]
 
-    await Ingredient.create({
-        name: 'mayonaise',
-        color: "#ffefd4",
-    })
+    const recipes = [
+        {
+            name: "blt",
+            description: "The classic",
+            userId: luke.id
+        }
+    ]
+
 
     //recipesPage
 
-    await Recipe.create({
-        name: "blt",
-        description: "The classic",
-        userId: luke.id,
-        ingredients: [
-            {
-                name: 'bacon',
-                color: "#911304",
-                selfGranted: true
-            },
-            {
-                name: 'lettuce',
-                color: "#569d00",
-                selfGranted: true
-            },
-            {
-                name: 'tomato',
-                color: "#ff0000",
-                selfGranted: true
-            },
-            {
-                name: 'bread',
-                color: "#8d4b27",
-                selfGranted: true
-            }
+    const newIngredients = await Promise.all(ingredients.map(ing => Ingredient.create(ing)));
 
-        ]
-    }, {
-        include: Ingredient
-    });
+    const newRecipes = await Promise.all(recipes.map(rc => Recipe.create(rc)));
 
     db.close()
     console.log(` Seeding successful!`)
