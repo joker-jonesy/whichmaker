@@ -6075,7 +6075,7 @@ function App() {
     path: "/",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_homePage__WEBPACK_IMPORTED_MODULE_3__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
-    path: "/create:/:id",
+    path: "/create/:id",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_createPage__WEBPACK_IMPORTED_MODULE_9__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     path: "/recipes",
@@ -6098,6 +6098,50 @@ function App() {
 
 /***/ }),
 
+/***/ "./src/components/createPage/IngredientBlock.js":
+/*!******************************************************!*\
+  !*** ./src/components/createPage/IngredientBlock.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function IngredientBlock(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "ingredient-block",
+    style: {
+      backgroundColor: props.dt.color
+    }
+  }, props.dt.name);
+}
+/* harmony default export */ __webpack_exports__["default"] = (IngredientBlock);
+
+/***/ }),
+
+/***/ "./src/components/createPage/IngredientLayer.js":
+/*!******************************************************!*\
+  !*** ./src/components/createPage/IngredientLayer.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function IngredientLayer(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "ingredient-layer",
+    style: {
+      backgroundColor: props.dt.color
+    }
+  }, props.dt.name);
+}
+/* harmony default export */ __webpack_exports__["default"] = (IngredientLayer);
+
+/***/ }),
+
 /***/ "./src/components/createPage/index.js":
 /*!********************************************!*\
   !*** ./src/components/createPage/index.js ***!
@@ -6107,12 +6151,48 @@ function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducers_singleRecipe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/singleRecipe */ "./src/reducers/singleRecipe.js");
+/* harmony import */ var _IngredientLayer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./IngredientLayer */ "./src/components/createPage/IngredientLayer.js");
+/* harmony import */ var _IngredientBlock__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IngredientBlock */ "./src/components/createPage/IngredientBlock.js");
+
+
+
+
 
 
 function createPage() {
-  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useParams)();
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, params.id));
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
+    id = _useParams.id;
+  var singleRecipe = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_singleRecipe__WEBPACK_IMPORTED_MODULE_2__.selectSingleRecipe);
+  var allIngredients = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+    return state.ingredients;
+  });
+  var recipe = singleRecipe.info;
+  var ingredients = singleRecipe.info.ingredients;
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    dispatch((0,_reducers_singleRecipe__WEBPACK_IMPORTED_MODULE_2__.fetchSingleRecipe)(id));
+  }, [dispatch, params]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, recipe.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "createBlock"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "recipeGrid"
+  }, ingredients && ingredients.length ? ingredients.map(function (ing) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IngredientLayer__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      dt: ing,
+      key: ing.key
+    });
+  }) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "ingredientsGrid"
+  }, allIngredients && allIngredients.length ? allIngredients.map(function (ing) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IngredientBlock__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      dt: ing,
+      key: ing.key
+    });
+  }) : null)));
 }
 /* harmony default export */ __webpack_exports__["default"] = (createPage);
 

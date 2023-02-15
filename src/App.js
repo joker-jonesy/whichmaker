@@ -30,7 +30,7 @@ function App() {
       <div className="wrapper">
         <Routes>
           <Route index path={"/"} element={<HomePage/>}/>
-          <Route path={"/create:/:id"} element={<CreatePage/>}/>
+          <Route path={"/create/:id"} element={<CreatePage/>}/>
           <Route path={"/recipes"} element={<RecipesPage/>}/>
           <Route path={"/recipe/:id"} element={<RecipePage/>}/>
           <Route path={"/user/:id"} element={<UserPage/>}/>
