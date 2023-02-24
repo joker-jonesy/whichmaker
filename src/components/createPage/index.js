@@ -11,6 +11,12 @@ function createPage(){
     const params = useParams()
     const { id } = useParams();
 
+    React.useEffect(() => {
+        dispatch(fetchSingleRecipe(id));
+    }, [dispatch, params]);
+
+    const [ing,setIng]= React.useState([])
+
 
     const singleRecipe = useSelector(selectSingleRecipe)
     const allIngredients = useSelector(state=>state.ingredients)
@@ -18,21 +24,20 @@ function createPage(){
     const ingredients =singleRecipe.info.ingredients;
 
 
-    React.useEffect(() => {
-        dispatch(fetchSingleRecipe(id));
-    }, [dispatch, params]);
-
-
     return(
         <>
+
             <h1>{recipe.name}</h1>
-            <div className="createBlock">
-                <div className="recipeGrid">
+            <textarea id={"description"} value={recipe.description}/>
+
+            <div id="createBlock">
+
+                <div id="recipeGrid">
                     {ingredients&&ingredients.length ? ingredients.map((ing)=>
                         <IngredientLayer dt={ing} key={ing.key}/>
                     ):null}
                 </div>
-                <div className="ingredientsGrid">
+                <div id="ingredientsGrid">
                     {allIngredients && allIngredients.length ? allIngredients.map((ing)=>
                         <IngredientBlock dt={ing} key={ing.key}/>
                     ):null}

@@ -16,31 +16,33 @@ import {fetchUsersAsync} from "./reducers/users";
 
 function App() {
 
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  React.useEffect(()=>{
-    dispatch(fetchRecipesAsync());
-    dispatch(fetchUsersAsync());
-    dispatch(fetchIngredientsAsync());
-  }, [dispatch])
+    React.useEffect(() => {
+        dispatch(fetchRecipesAsync());
+        dispatch(fetchUsersAsync());
+        dispatch(fetchIngredientsAsync());
+    }, [dispatch])
 
-  return (
-    <>
-      <Nav/>
-      <div className="wrapper">
-        <Routes>
-          <Route index path={"/"} element={<HomePage/>}/>
-          <Route path={"/create/:id"} element={<CreatePage/>}/>
-          <Route path={"/recipes"} element={<RecipesPage/>}/>
-          <Route path={"/recipe/:id"} element={<RecipePage/>}/>
-          <Route path={"/user/:id"} element={<UserPage/>}/>
-          <Route path={"/ingredients"} element={<IngredientsPage/>}/>
-          <Route path={"/ingredient/:id"} element={<IngredientPage/>}/>
-        </Routes>
-        <Footer/>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <Nav/>
+            <div className="wrapper">
+                <div id={"page"}>
+                    <Routes>
+                        <Route index path={"/"} element={<HomePage/>}/>
+                        <Route path={"/create/:id"} element={<CreatePage/>}/>
+                        <Route path={"/recipes"} element={<RecipesPage/>}/>
+                        <Route path={"/recipe/:id"} element={<RecipePage/>}/>
+                        <Route path={"/user/:id"} element={<UserPage/>}/>
+                        <Route path={"/ingredients"} element={<IngredientsPage/>}/>
+                        <Route path={"/ingredient/:id"} element={<IngredientPage/>}/>
+                    </Routes>
+                </div>
+                <Footer/>
+            </div>
+        </>
+    );
 }
 
 export default App;

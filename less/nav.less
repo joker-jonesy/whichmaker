@@ -1,0 +1,21 @@
+nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: @mobileNav;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.11) 6px 6px 10px;
+  z-index: 99;
+  background-color: white;
+
+  @media screen and(min-width: @desktop){
+    height: @desktopNav;
+  }
+}
+
+.dropDown{
+
+  @media screen and(min-width: @desktop){
+    display: none;
+  }
+}

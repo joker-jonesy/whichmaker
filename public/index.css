@@ -1,4 +1,160 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: Roboto;
+}
+html {
+  height: 100vh;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 60px;
+}
+@media screen and (min-width: 900px) {
+  body {
+    padding-top: 80px;
+  }
+}
+body #root {
+  min-height: 100vh;
+  width: 100%;
+}
+body .wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+body .wrapper #page {
+  min-height: 100%;
+  width: 100%;
+  padding: 8px;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+#description {
+  width: 100%;
+  min-height: 100px;
+  max-height: 250px;
+  resize: none;
+  border-radius: 8px;
+  border: black 3px solid;
+}
+@media screen and (min-width: 900px) {
+  #description {
+    width: 300px;
+  }
+}
+#createBlock {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+@media screen and (min-width: 900px) {
+  #createBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+#createBlock #recipeGrid {
+  padding: 8px;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+@media screen and (min-width: 900px) {
+  #createBlock #recipeGrid {
+    width: 50%;
+  }
+}
+#createBlock #ingredientsGrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 8px;
+  width: 100%;
+  overflow: scroll;
+  min-height: 400px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+@media screen and (min-width: 800px) {
+  #createBlock #ingredientsGrid {
+    position: relative;
+    width: 50%;
+  }
+}
+#createBlock .ingredient-block {
+  height: 60px;
+  width: 60px;
+  border-radius: 60px;
+  margin: 6px;
+}
+@media screen and (min-width: 900px) {
+  #createBlock .ingredient-block {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+}
+#createBlock .ingredient-layer {
+  height: 80px;
+  width: 100%;
+  border-radius: 10px;
+}
+@media screen and (min-width: 900px) {
+  #createBlock .ingredient-layer {
+    height: 60px;
+  }
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.11) 6px 6px 10px;
+  z-index: 99;
+  background-color: white;
+}
+@media screen and (min-width: 900px) {
+  nav {
+    height: 80px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .dropDown {
+    display: none;
+  }
+}
+footer {
+  height: 60px;
+  width: 100%;
+  background-color: #000000;
+}
+@media screen and (min-width: 80px) {
+  footer {
+    height: 80px;
+  }
 }

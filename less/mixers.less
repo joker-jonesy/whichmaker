@@ -1,0 +1,31 @@
+.flexerInit(@dr){
+  display: flex;
+  flex-direction: @dr;
+  flex-wrap: wrap;
+}
+
+.flexCenter(){
+  justify-content: center;
+  align-items: center;
+}
+
+.flexSpaceAround(){
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flexSpaceBetween(){
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexEvenly(){
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.generateBlock(@sz,@br){
+  height: @sz;
+  width: @sz;
+  border-radius: @br;
+}

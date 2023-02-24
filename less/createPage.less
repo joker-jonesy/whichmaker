@@ -1,0 +1,75 @@
+
+#description{
+  width: 100%;
+  @media screen and (min-width: @desktop){
+    width: 300px
+  }
+  min-height: 100px;
+  max-height: 250px;
+  resize: none;
+  border-radius: 8px;
+  border: black 3px solid;
+
+
+
+}
+
+#createBlock{
+  .flexerInit(column);
+  .flexSpaceAround();
+  position: relative;
+
+  @media screen and (min-width: @desktop){
+    .flexerInit(row);
+  }
+
+  #recipeGrid{
+    padding: 8px;
+    width: 100%;
+    min-height: 400px;
+    .flexerInit(column);
+    .flexEvenly();
+
+    @media screen and (min-width: @desktop){
+      width: 50%;
+    }
+  }
+
+  #ingredientsGrid{
+    .flexerInit(row);
+    .flexEvenly();
+    padding: 8px;
+    width: 100%;
+    overflow: scroll;
+    min-height: 400px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+    @media screen and (min-width: @tablet){
+      position: relative;
+      width: 50%;
+    }
+
+  }
+
+  .ingredient-block{
+    .generateBlock(60px,60px);
+    margin: 6px;
+    @media screen and (min-width: @desktop){
+      .generateBlock(100px,10px);
+      margin: 10px;
+    }
+
+  }
+
+  .ingredient-layer{
+    height: @desktopNav;
+    @media screen and (min-width: @desktop){
+      height: @mobileNav;
+    }
+    width: 100%;
+    border-radius: 10px;
+  }
+
+}

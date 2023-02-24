@@ -6070,6 +6070,8 @@ function App() {
   }, [dispatch]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_navigation_Nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "page"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     index: true,
     path: "/",
@@ -6092,7 +6094,7 @@ function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
     path: "/ingredient/:id",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ingredientPage__WEBPACK_IMPORTED_MODULE_7__["default"], null)
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_navigation_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_navigation_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 }
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
@@ -6114,7 +6116,7 @@ function IngredientBlock(props) {
     style: {
       backgroundColor: props.dt.color
     }
-  }, props.dt.name);
+  });
 }
 /* harmony default export */ __webpack_exports__["default"] = (IngredientBlock);
 
@@ -6136,7 +6138,7 @@ function IngredientLayer(props) {
     style: {
       backgroundColor: props.dt.color
     }
-  }, props.dt.name);
+  });
 }
 /* harmony default export */ __webpack_exports__["default"] = (IngredientLayer);
 
@@ -6156,6 +6158,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reducers_singleRecipe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/singleRecipe */ "./src/reducers/singleRecipe.js");
 /* harmony import */ var _IngredientLayer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./IngredientLayer */ "./src/components/createPage/IngredientLayer.js");
 /* harmony import */ var _IngredientBlock__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IngredientBlock */ "./src/components/createPage/IngredientBlock.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -6167,26 +6175,33 @@ function createPage() {
   var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)();
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
     id = _useParams.id;
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    dispatch((0,_reducers_singleRecipe__WEBPACK_IMPORTED_MODULE_2__.fetchSingleRecipe)(id));
+  }, [dispatch, params]);
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState([]),
+    _React$useState2 = _slicedToArray(_React$useState, 2),
+    ing = _React$useState2[0],
+    setIng = _React$useState2[1];
   var singleRecipe = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_singleRecipe__WEBPACK_IMPORTED_MODULE_2__.selectSingleRecipe);
   var allIngredients = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.ingredients;
   });
   var recipe = singleRecipe.info;
   var ingredients = singleRecipe.info.ingredients;
-  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
-    dispatch((0,_reducers_singleRecipe__WEBPACK_IMPORTED_MODULE_2__.fetchSingleRecipe)(id));
-  }, [dispatch, params]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, recipe.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "createBlock"
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, recipe.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
+    id: "description",
+    value: recipe.description
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "createBlock"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "recipeGrid"
+    id: "recipeGrid"
   }, ingredients && ingredients.length ? ingredients.map(function (ing) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IngredientLayer__WEBPACK_IMPORTED_MODULE_3__["default"], {
       dt: ing,
       key: ing.key
     });
   }) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "ingredientsGrid"
+    id: "ingredientsGrid"
   }, allIngredients && allIngredients.length ? allIngredients.map(function (ing) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IngredientBlock__WEBPACK_IMPORTED_MODULE_4__["default"], {
       dt: ing,
